@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Movie Recommendation System</title>
+    <link rel="stylesheet" type="text/css" href="../static/style.css">
+</head>
+<body>
+<div class="container">
+    <header>
+        <img src="../static/movie_icon.png" >
+        <h1>Movie Recommendation System</h1>
+    </header>
+    <form action="/" method="POST">
+        <label for="movie_name">Enter your favorite movie name:</label>
+        <input type="text" id="movie_name" name="movie_name" required>
+        <input type="submit" value="Get Recommendations">
+    </form>
+    {% if movie_name and recommended_movies %}
+    <h2>Recommended movies for '{{ movie_name }}':</h2>
+    <ul>
+        {% for movie in recommended_movies %}
+        <li>{{ movie }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</div>
+</body>
+</html>
